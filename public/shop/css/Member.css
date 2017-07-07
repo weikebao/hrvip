@@ -1,0 +1,342 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{list-style: none;}
+
+.Flex1 a{
+	color: white;
+}
+.on a{
+	color: #f58a02;
+}
+.boxFlexbanner{
+	width: 1280px;
+	margin: 0 auto;
+}
+.boxFlexbanner img{
+	width: 100%;
+}
+.menmberBox{
+    width: 1165px;
+    line-height: 45px;
+    display: flex;
+    justify-content: flex-start;
+    background: #cccccc;
+    margin: -9px auto;
+    color: #666666;
+    font-size: 16px;
+}
+.menmberBox span{
+	margin-left: 15px;
+}
+.menmberBox a{
+	color: #fe9f34;
+}
+.menmberBox1{
+    width: 1165px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 9px auto;
+    color: #666666;
+    font-size: 16px;
+}
+.menmberCon{
+	width: 1165px;
+	height: 831px;
+	border: 1px solid #888888;
+}
+.menmberConleft{
+	height: 831px;
+	display: inline-block;
+}
+.menmberConright{
+	width: 945px;
+	height: 831px;
+	float: right;
+	display: inline-block;
+}
+.menmberConleftText{
+    color: #fe9f34;
+    line-height: 40px;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+}
+.menmberConleftText p{
+	margin-left: 10px;
+}
+.menmberConleftText1{
+	width: 200px;
+	/*height: 689px;*/
+	padding-bottom: 70px;
+	background: #abbecd;
+}
+.menmberConleftText1Li{
+	line-height: 40px;
+	border-bottom: 1px solid white;
+}
+.menmberConleftText1Li a{
+	color: white;
+	margin-left: 15px;
+}
+.menmberConleftText1Li-i{
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	background: url(../images/jifenxiala.png)no-repeat;
+	background-size: 100% 100%;
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+.menmberConleftText1LiHide{
+	display: none;
+}
+.huiyuanBox{
+	width: 1280px;
+	height: auto;
+	background: #FFFFFF;
+	margin: 0 auto;
+	/*overflow: auto;*/
+}
+.menmberConleftText1LiHide-li{
+	line-height: 40px;
+	border-bottom: 1px solid white;
+}
+.menmberConleftText1LiHide .bacg{
+	background: #d35400;
+}
+.menmberConrightCon{
+	width: 433px;
+	height: 689px;
+	margin: 40px auto;
+	overflow: hidden;
+	position: relative;
+}
+.menmberConrightConlLi{
+	margin-top: 20px;
+}
+.menmberConrightConlLi span{
+	color: black;
+	font-size: 16px;
+}
+.menmberConrightConlLi input{
+	width: 60%;
+	height: 33px;
+	padding: 6px;
+	border: 1px solid #888888;
+}
+.menmberConrightConlLi7{
+	margin-left: 10px;
+}
+.footBox{
+	width: 1280px;
+	line-height: 50px;
+	text-align: center;
+	color: white;
+	background: #000000;
+	margin: 0 auto;
+}
+
+/*我的积分-积分记录部分*/
+.menmberConrightCon-jilu{
+    height: 689px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+.menmberConrightCon-jilubenyue{
+	/*height: 272px;*/
+	/*background: #919191;*/
+	margin: 0 auto;
+	overflow: auto;
+}
+.menmberConrightCon-jilubenyueIcon{
+	width: 20px;
+	height: 15px;
+	display: inline-block;
+	background: url(../images/jiluxx.png)no-repeat;
+	background-size: 100% 100%;
+	margin-left: 5px;
+}
+.menmberConrightCon-jilubenyueText{
+	color: black;
+	margin-left: 38px;
+	margin-top: 10px;
+	overflow: hidden;
+	line-height: 40px;
+}
+.menmberConrightCon-jilulist{
+	background: #f4f4f4;
+	display: flex;
+	justify-content: flex-start;
+}
+.menmberConrightCon-jilulist1{
+	width: 161px;
+	line-height: 30px;
+	text-align: center;
+}
+.menmberConrightCon-jilulist1 p:nth-child(2){margin-left: 15px;}
+.menmberConrightCon-jilulist1number{
+	margin-top: 15px;
+}
+.menmberConrightCon-fenyeBox{
+	width: 589px;	
+	margin: 40px auto;
+}
+.menmberConrightCon-fenyeBoxleft{
+	display: flex;
+	justify-content: space-around;
+}
+
+.menmberConrightCon-fenyeBoxleft-C1{
+	width: 35px;
+	line-height: 28px;
+	border: 1px solid #888888;
+	text-align: center;
+	font-size: 16px;
+	display: inline-block;
+}
+.menmberConrightCon-fenyeBoxleft-C2{
+    width: 45px;
+    line-height: 28px;
+    border: 1px solid #888888;
+    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+}
+
+/*佣金兑换太阳币部分*/
+.taiyang-code{
+	margin-left: 10px;
+}
+.taiyang-code a{
+	color: #fc6500;
+}
+.taiyangbi-duihuan{
+	width: 200px;
+	line-height: 40px;
+	text-align: center;
+	background: #FC6500;
+	margin: 40px auto;
+}
+.taiyangbi-duihuan a{
+	color: white;
+}
+.taiyangbi-duihuangcg{
+    width: 225px;
+    line-height: 90px;
+    text-align: center;
+    color: #FC6500;
+    position: absolute;
+    top: 154px;
+    left: 92px;
+    background: #ffffff;
+    display: none;
+}
+.tybsearch{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../images/search.png)no-repeat;
+    background-size: 100% 100%;
+    margin-left: -30px;
+    margin-top: 6px;
+    position: absolute;
+}
+.searchfangdaBox{
+     width: 41%;
+    padding-bottom: 30px;
+    background: #FFFFFF;
+    border: 1px solid #888888;
+    margin-left: 146px;
+    text-align: -webkit-center;
+    line-height: 25px;
+    color: #888888;
+     display: none; 
+    position: absolute;
+}
+.chongzhitishi{
+    width: 75%;
+    line-height: 50px;
+    background: #eaeaea;
+    text-align: center;
+    color: #FC6500;
+    margin: 0 auto;
+     margin-left: 34px; 
+}
+/*充值中心部分*/
+.czzxBox{
+	width: 1280px;
+	margin: 0 auto;
+	overflow: auto;
+}
+.czzxCon{
+	width: 1100px;	
+	margin: 10px auto;
+}
+.czzxConweizhiText{
+	color: #FC6500;
+	font-size: 16px;
+}
+.czzxConcontent{
+	width: 1100px;
+	height: 200px;
+	margin: 0 auto;
+	border-bottom: 2px solid #8d8d8d;
+}
+.czzxConcontentMoney{
+    width: 183px;
+    height: 166px;
+    display: inline-block;
+    float: left;
+}
+.czzxConcontentMoney img{
+	width: 100%;
+}
+.czzxConcontentText{
+    color: black;
+    display: inline-block;
+    float: left;
+    margin-top: 69px;
+    line-height: 34px;
+    margin-left: 20px;
+
+}
+.czzxConcontentMoneynumber{
+    float: right;
+    color: #FC6500;
+    margin-top: 95px;
+    font-size: 16px;
+}
+.czzxConczBox{
+	width: 1100px;
+	height: 50px;
+	display: flex;
+	justify-content: space-around;
+	margin: 60px auto;
+}
+.czzxConczBoxText{
+	width: 200px;
+	line-height: 50px;
+	text-align: center;
+	background: #e6e6e6;
+	box-shadow:2px 3px 8px #81837f
+}
+.czzxConczBoxText a{
+	color: black;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.lijichongzhi{
+	width: 300px;
+	line-height: 50px;
+	text-align: center;
+	background: #ff7c3c;
+	margin: 75px auto;
+}
+.lijichongzhi a{
+	color: black;
+	font-size: 16px;
+}

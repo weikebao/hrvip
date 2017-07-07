@@ -1,0 +1,33 @@
+
+<h2 class="title">心禧爱的品牌介绍</h2>
+<div class="neirong clear">
+    <div class="left">
+        <img src="/qiantai/images/gywm_pic2_03.jpg" />
+    </div>
+    <div class="right">
+        <p>公司地址：<span>香港九龍旺角墩道678号</span></p>
+        <p>开店免费热线：<span>0315-0301801</span></p>
+        <p>电话/TEL：<span>00852-30717868</span></p>
+        <p>传真/FAX：<span>00852-27962861</span></p>
+        <p>中国客服电话：<span>400-0160-588</span></p>
+    </div>
+<script>
+    $(function()
+    {
+      //发送ajax
+      $.ajax({
+         // http://siji.qijisw.com
+         url:'/women/indexs',
+         type:'GET',
+         dataType:'jsonp',
+         jsonp:"jsoncallback",
+         // data:{'zhanghao':zhanghao,'mima':mima},
+         success:function(mes)
+         {
+            alert('11');
+         }
+      });
+    })
+</script>    
+</div>
+

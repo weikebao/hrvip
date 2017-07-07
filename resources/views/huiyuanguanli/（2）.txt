@@ -1,0 +1,199 @@
+/*
+    后台添加的人员始终都是在ID=1的基础上增加的
+
+    1.添加时查看总区间的人数$num
+    计算新人的所处位置前3层不计算第四层开始计算
+    //$num=6 添加7号人
+    $num-2/4%0  当前有2层右边的这个人的排序ID ID = $num-2
+    说明当前的人数满足所有层次新来的人需要放在下一层
+    位置为右边的这个人的左区间
+    获得这个人的排序ID
+    $num-2/4%1  $num= 7 添加8号人 ID = $num-3
+    说明当前的这一层的人数不足
+    位置为右边的这个人的右区间
+
+    $num-2/4%2  $num=8 添加9号人 ID = $num-2
+    说明当前的这一层的人数不足
+    位置为左边的这个人的左区间
+
+    $num-2/4%3 $num = 9  添加10号人  ID = $num-3
+    说明当前的这一层的人数不足
+    位置为左边的这个人的右区间
+    */
+    //将推荐人的信息加入到数据库中  进行分配
+    //修改公司的第一个人的ID作为总的推荐   先左后右
+    /*
+      1.查询这个总的推荐人的左右节点是否已经有人
+      2.有人的话查询他的左右区间哪里缺少人员 都不缺人 将他放在第3层的左节点中
+    */
+    $xun = DB::table('vip_huiyuan')->where('id',1)->first();
+    if(($xun['zuoqujian']+$xun['youqujian'])==0)
+    {
+      //将这个人放在右节点上
+      //设置这个人的排序id==1
+      $data['paixuid']=1;
+      $data['qujiancode'] = '右区间';
+      $data['fujiedian']=1;
+      //先将这个人加入到数据库中
+      $res = DB::table('vip_huiyuan')->insertGetId($data);
+      //把这个人修改到ID=1的上面
+      $first['youjiedian'] = $res;
+      $first['youqujian'] = 1;
+       $true = DB::table('vip_huiyuan')->where('id',1)->update($first);
+
+    }else if(($xun['zuoqujian']+$xun['youqujian'])==1)
+    {
+      //将这个人放在左节点上
+      $data['paixuid']=2;
+      $data['qujiancode'] = '左区间';
+      $data['fujiedian']=1;
+       //先将这个人加入到数据库中
+      $res = DB::table('vip_huiyuan')->insertGetId($data);
+      //把这个人修改到ID=1的上面
+      $first['zuojiedian'] = $res;
+      $first['zuoqujian'] = 1;
+      $true = DB::table('vip_huiyuan')->where('id',1)->update($first);
+    }else if(($xun['zuoqujian']+$xun['youqujian'])==2)
+    {
+      //将这个人放在右节点的下级左节点上
+      $data['paixuid']=3;
+      $data['qujiancode'] = '右区间';
+      //求取这个人的辅助节点
+      $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',1)->first()['id'];
+      $data['fujiedian'] = $fu;
+      $res = DB::table('vip_huiyuan')->insertGetId($data);
+      //把这个人修改到ID=1的上面
+      $first['zuojiedian'] = $res;
+      $firsts['youqujian'] = 2;
+      $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',1)->update($first);
+    }else if(($xun['zuoqujian']+$xun['youqujian'])==3)
+    {
+      //将这个人放在右节点的下级右节点上
+      $data['paixuid']=4;
+      $data['qujiancode'] = '右区间';
+      //求取这个人的辅助节点
+      $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',1)->first()['id'];
+      $data['fujiedian'] = $fu;
+      $res = DB::table('vip_huiyuan')->insertGetId($data);
+      //把这个人修改到ID=1的上面
+      $first['youjiedian'] = $res;
+      $firsts['youqujian'] = 3;
+       $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',1)->update($first);
+    }else if(($xun['zuoqujian']+$xun['youqujian'])==4)
+    {
+      //将这个人放在左节点的下级左节点上
+      $data['paixuid']=5;
+      $data['qujiancode'] = '左区间';
+      //求取这个人的辅助节点
+      $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',2)->first()['id'];
+      $data['fujiedian'] = $fu;
+      $res = DB::table('vip_huiyuan')->insertGetId($data);
+      //把这个人修改到ID=1的上面
+      $first['zuojiedian'] = $res;
+      $firsts['zuoqujian'] = 2;
+      $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',2)->update($first);
+    }else if(($xun['zuoqujian']+$xun['youqujian'])==5)
+    {
+      //将这个人放在左节点的下级右节点上
+      $data['paixuid']=6;
+      $data['qujiancode'] = '左区间';
+      //求取这个人的辅助节点
+      $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',2)->first()['id'];
+      $data['fujiedian'] = $fu;
+       $res = DB::table('vip_huiyuan')->insertGetId($data);
+      //把这个人修改到ID=1的上面
+      $first['youjiedian'] = $res;
+      $firsts['zuoqujian'] = 3;
+       $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',2)->update($first);
+    }else
+    {
+      $num = $xun['zuoqujian']+$xun['youqujian'];
+      //当添加的人数大于6个人时要按照顺序进行
+      if(($xun['zuoqujian']+$xun['youqujian']-2)%4==0)
+      {
+        //这个人的排序的ID
+        $data['paixuid'] = $num+1;
+        $data['qujiancode'] = '右区间';
+        //求取这个人的辅助节点
+        $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$num-2)->first()['id'];
+        $data['fujiedian'] = $fu;
+        //将这个人添加到数据库中
+        $res = DB::table('vip_huiyuan')->insertGetId($data);
+        //获取这个新添加的人的辅导人的排序ID
+        $paixuid = $num-2;
+        //将这个人放在辅导人的左节点上
+        $first['zuojiedian'] = $res;
+        $firsts['youqujian'] = $xun['youqujian']+1;
+        $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$paixuid)->update($first); 
+
+      }else if(($xun['zuoqujian']+$xun['youqujian']-2)%4==1)
+      {
+        //这个人的排序的ID
+        $data['paixuid'] = $num+1;
+        $data['qujiancode'] = '右区间';
+        //将这个人添加到数据库中
+        //求取这个人的辅助节点
+        $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$num-3)->first()['id'];
+        $data['fujiedian'] = $fu;
+        $res = DB::table('vip_huiyuan')->insertGetId($data);
+        //获取这个新添加的人的辅导人的排序ID
+        $paixuid = $num-3;
+        //将这个人放在辅导人的左节点上
+        $first['youjiedian'] = $res;
+        $firsts['youqujian'] = $xun['youqujian']+1;
+        $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$paixuid)->update($first); 
+      }else if(($xun['zuoqujian']+$xun['youqujian']-2)%4==2)
+      {
+        //这个人的排序的ID
+        $data['paixuid'] = $num+1;
+        $data['qujiancode'] = '左区间';
+        //求取这个人的辅助节点
+        $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$num-2)->first()['id'];
+        $data['fujiedian'] = $fu;
+        //将这个人添加到数据库中
+        $res = DB::table('vip_huiyuan')->insertGetId($data);
+        //获取这个新添加的人的辅导人的排序ID
+        $paixuid = $num-2;
+        //将这个人放在辅导人的左节点上
+        $first['zuojiedian'] = $res;
+        $firsts['zuoqujian'] = $xun['zuoqujian']+1;
+        $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+      // 放在下属的会员中
+      $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$paixuid)->update($first); 
+
+      }else if(($xun['zuoqujian']+$xun['youqujian']-2)%4==3)
+      { 
+        //这个人的排序的ID
+        $data['paixuid'] = $num+1;
+        $data['qujiancode'] = '左区间';
+        //将这个人添加到数据库中
+        //求取这个人的辅助节点
+        $fu = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$num-3)->first()['id'];
+        $data['fujiedian'] = $fu;
+        $res = DB::table('vip_huiyuan')->insertGetId($data);
+        //获取这个新添加的人的辅导人的排序ID
+        $paixuid = $num-3;
+        //将这个人放在辅导人的左节点上
+        $first['youjiedian'] = $res;
+        $firsts['zuoqujian'] = $xun['zuoqujian']+1;
+        $trues = DB::table('vip_huiyuan')->where('id',1)->update($firsts);
+        // 放在下属的会员中
+        $true = DB::table('vip_huiyuan')->where('tuijiedian',1)->where('paixuid',$paixuid)->update($first); 
+
+      }else 
+      {
+        return back()->with('error','系统错误1');
+      }
+    }

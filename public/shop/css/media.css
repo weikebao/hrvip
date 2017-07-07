@@ -1,0 +1,239 @@
+@media screen and (max-width: 414px) {
+    .nav_btn{display: block;}
+
+
+    .header .logo img{width:200px;margin-left:20px;}
+    .nav{display: none;}
+    .header{background: #404145;}
+    .banner{background: url(../images/huiyuan_06.jpg) no-repeat center top;background-size: cover;height:230px;}
+    .main .title{font-size:14px;line-height: 40px;height:40px;text-indent: 9px;}
+    .main{width:auto; border: none; margin-bottom: 40px;}
+    .main .tit_01{display: none;}
+    .main .m_left{display: none;}
+    .main .m_right{width: auto;float: none;}
+    .footers .p1{line-height: 38px;padding:40px 30px;font-size:14px;}
+
+    .main .con1{padding-top:20px;}
+    .main .con1 .list{margin-bottom: 20px; border: 2px solid #050504;}
+    .table-bordered tr td {
+        border-left: 1px solid #ddd;
+        padding: 8px;
+    }
+    .table th,td{
+        font-size: 12px;
+    }
+    .table-bordered tr td select{
+        width: 100%;
+    }
+    .main .con2 .top_box input[type='text']{width:122px;}
+    .main .con2 .top_box{width: auto;border-top:1px solid #ddd;}
+    .main .con2 .content .list{padding:0 0 50px;display: block;    width: auto;}
+    .main .con2 .content img{width:80%;margin: 0 auto;display: block;}
+    .main .con2 .content h3{font-size: 20px;}
+    .top_box{margin-left: 0px;}
+    .main .con3 .tit{width:35%;font-size: 15px;line-height: 30px;}
+    .main .con3 .list{}
+    .main .con3 input[type="text"]{width: 50%;height:30px;text-indent: 4px;font-size: 13px;}
+    .main .con3 .icon1{background: url("../images/jiantou2_03.jpg") no-repeat 90% center;background-size: 6px auto;}
+    .main .con3 button {  width: 80px;  height: 30px; margin:14px 0 60px 160px;  }
+    .main .con3 input[type="text"].yzm_txt{width: 100px;}
+    .main .con3 .yzm_btn{font-size: 14px;width: 120px;line-height: 30px;height:30px;}
+
+    .main .con4{margin-bottom: 50px}
+    .main .con4 td{font-size: 14px;}
+    .main .con4 tr{border:2px solid #050504;text-align: center;}
+    .main .con4 .tit_02{font-size:15px;}
+    .main .con4 .tit_01{display: table-cell;}
+    .main .page01{margin-left:20px;}
+    .main .page01 .list{font-size: 14px;line-height: 24px;}
+    .main .page01 .list a{font-size: 14px;height:20px;padding: 0 5px;}
+    .main .page01 .list input[type="text"]{height:20px;width: 35px;}
+    .main .page01 .list.one{bottom:-12px;}
+    .main .page01 .list.three{margin-left: 20px;}
+
+    /*登录注册*/
+    .main .m_right.two{padding:10px 0 0 0;}
+    .main .con3.denglu .tit{width: 25%;}
+    .main .con3.denglu .list{position: relative;}
+    .main .con3.denglu .mima_list{margin-bottom: 50px;}
+    .main .con3.denglu .bz_txt{position: absolute;top:28px;left:120px;}
+    .main .con3.denglu .btn_3{margin:2px auto 0;display: block;}
+    .main .m_right.two{margin:0;}
+    .main .con3.denglu input[type="text"].duan{margin-right:0;}
+    .ewm_pic{height:35px;}
+    .ewm_pic {
+        width: 56px;
+        height: 44px;
+        background: #666;
+        position: relative;top: -8px
+    }
+    .main .con3 .yzm_btn2{line-height: 18px;position: relative;top:0px;left:5px;}
+    .main .con3 .bz_txt{font-size: 14px;}
+    .main .con3 input[type="password"] {
+        height: 30px;
+        margin-left: 14px;
+        text-indent: 10px;
+        width: 209px;
+    font-size: 14px}
+    .main .con3 input[type="text"].duan.two {
+        width: 130px;}
+    /*.main .con2 .biaoge th{font-size: 5px;line-height: 15px}*/
+    /*.main .con2 .biaoge td{font-size: 5px;line-height: 15px}*/
+    .main .m_right {
+        width: 100%;
+        margin-left: 0;
+    }
+    .con4 a{
+        background: none;padding-right:0px;color:#000;font-size: 14px;
+    }
+    .layui-elem-field{
+        height: 30px;
+        display: inline-block;
+        width: 82%;
+        margin-left: 30px;;
+    }
+    .layui-elem-field legend{
+        font-size: 8px;
+        height: 24px;
+    }
+    .content_1{
+        font-size: 18px;
+        margin-left: 80px;
+        margin-top: 10px;
+    }
+    .footer .p1 {
+        color: #bbb;
+        line-height: 129px;
+        font-size: 16px;
+        text-align: center;
+    }
+    .table {
+        width: 100%;
+        margin-bottom: 100px;
+        margin-left: 0%;
+        margin-top: 3%;
+    }
+    .table th,td{
+        -ms-word-break: break-all;
+        word-break: break-all;
+    }
+    .main .con2 .biaoge th{
+        font-size: 16px;line-height: 32px;
+    }
+    .main .con2 .biaoge td {
+        color: #fff;
+        font-size: 14px;
+        line-height: 40px;
+    }
+    .main .con2 .biaoge .btn02 {
+        color: #fff;
+        font-size: 14px;
+        display: block;
+        margin: 0 auto;
+        width: 80px;
+        height: 24px;
+        border: 3px solid #ff9000;
+        line-height: 29px;
+    }
+    .main .con2 .biaoge {
+        position: relative;
+        top: 0px;
+         left: 0px;
+        display: none;
+    }
+    .fenye{
+        margin-top:10px;
+        height:100px;
+        width:100%;
+    } 
+    .fenye ul{
+        margin-left: 80px;
+    }
+    .fenye ul li{
+        float:left;
+        padding:0px 10px 0px 10px;
+    }
+
+     
+
+     .con4 .a2{font-size:18px;}
+     .main .con4{width:98%;}
+     .main .m_right{width:414px;}
+     .con4{left:0px;top:0px;}
+      /*****会员信息搜索*****/
+     .top_box{width:414px;}
+
+
+
+
+
+
+}
+@media screen and (max-width: 375px){
+    .main .con3.denglu .bz_txt{
+        left: 106px;
+    }
+    .main .con3 input[type="text"].duan.two {
+        width: 108px;}
+    .main .con3 input[type="password"] {
+        height: 30px;
+        margin-left: 14px;
+        text-indent: 10px;
+        width: 190px;}
+    .main .con3 button {  width: 80px;  height: 30px; margin:14px 0 60px 148px;  }
+    .fenye ul{
+        margin-left: 60px;
+    }
+     .main .m_right{width:375px;}
+       /*****会员信息搜索*****/
+      .top_box{width:375px;}
+}
+
+
+@media screen and (max-width: 320px) {
+    .main .page01 .list.one{margin:0 1px;}
+    .main .page01 .list.three{margin-left: 9px;}
+    .main .page01 .list input[type="text"]{margin:0;}
+    .main .page01 .list:last-child{margin:0;}
+    .main .con3.denglu input[type="text"].duan{width:125px;}
+    .main .con3.denglu .bz_txt{position: absolute;top:27px;left:40px;font-size: 14px;}
+    .main .con3.denglu input[type="text"].duan.two{width: 66px;}
+    .main .con3 input[type="password"] {
+        height: 30px;
+        margin-left: 14px;
+        text-indent: 10px;
+        width: 162px;}
+    .ewm_pic{
+        width: 52px;position: relative;top: -8px;
+    }
+    .main .con3 .yzm_btn{font-size: 10px;width: 120px;line-height: 30px;height:30px;}
+    .main .con3 input[type="text"].yzm_txt {
+        width: 70px;
+    }
+    .main .con3 button {  width: 80px;  height: 30px; margin:14px 0 60px 128px;  }
+    .main .con4 .tit_02{font-size:12px;}
+    .main .con2 .top_box select{
+        width: 126px;
+    }
+    #keyword{
+        width: 126px;
+    }
+    .main .con2 .top_box button{
+        width: 20px;
+    }
+    .fenye ul{
+        margin-left: 30px;
+    }
+    .fenye ul li{
+        float:left;
+        padding:0px 10px 0px 10px;
+    }
+
+
+
+     .main .title{font-size:12px;}
+     .main .m_right{width:320px;}
+     .con4 .a2{font-size:16px;}
+     /*****会员信息搜索*****/
+      .top_box{width:320px;}
+}

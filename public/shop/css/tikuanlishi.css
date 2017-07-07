@@ -1,0 +1,37 @@
+caption{
+    font-size: 25px;
+    color: orange;
+    margin-bottom: 10px;
+}
+.table{
+    width: 95%;
+    margin-left: 0;
+}
+.table th {
+    width: 50px;
+}
+.table th,td{
+    font-size: 16px;
+}
+.footing{
+    background: #2b2b2b;
+    width: 100%;
+}
+.footing .p1{
+    color: #bbb;
+    line-height: 98px;
+    font-size: 16px;
+    text-align: center;
+}
+.fenye{
+    margin-top:10px;
+    height:100px;
+    width:100%;
+} 
+.fenye ul{
+    margin-left: 100px;
+}
+.fenye ul li{
+    float:left;
+    padding:30px 50px 0px 50px;
+}

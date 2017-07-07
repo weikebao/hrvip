@@ -1,0 +1,406 @@
+*{margin:0px;padding:0px;list-style:none;text-decoration:none;}
+body{width:100%;background:#f6f6f6;}
+/*.header{*/
+	/*width:100%;*/
+	/*height:120px;*/
+	/*background:#404145;	*/
+	/*overflow:hidden;*/
+/*}*/
+.czleft{
+	width:35%;
+	height:100%;
+	float:left;
+}
+.czleft img{
+	width:16%;
+	float:left;
+	margin-top:13px;
+	margin-left:76px;
+}
+.czleft p{
+	width:65%;
+	float:right;
+	font-size:22px;
+	color:#fff;
+	line-height:120px;
+}
+.czright{
+	width:60%;
+	float:right;
+	height:116px;
+	background:#000;
+}
+.czright li{
+	float:left;
+	padding:50px 18px;
+}
+.czright li a{
+	color:#fff;
+	font-size:14px;
+}
+.content{
+	width:100%;
+	height:auto;
+	margin:0 auto;
+	overflow:hidden;
+}
+.czpic{
+	width:100%;
+}
+.main{
+	width:90%;
+	height:930px;
+	margin:0 auto;
+}
+.mleft{
+	width:26%;
+	height:100%;
+	float:left;
+	background:red;
+}
+/********
+.tit_01{
+	font-size: 28px;
+	line-height: 100px;
+	color:#ff9000;
+	margin-top:100px;
+}
+.nav2 li{
+	background:#abbecd;
+}
+.nav2 a{
+	color:#ffffff;
+	line-height: 51px;
+	font-size: 23px;
+	font-family: '宋体';
+}
+.nav2 .list{
+	border-bottom: 1px solid #fff;
+	text-indent: 14px;
+	position: relative;
+}
+.nav2 .ac{
+	background: url("../images/nav2_ac_03.jpg");
+}
+.nav2 .ac:before{
+	content: '';
+	width: 15px;
+	height:15px;
+	background: url("../images/huiyuan_09.jpg") no-repeat;
+	position: absolute;
+	top:17px;
+	right:26px;
+	box-shadow: 2px 2px 2px 0 rgba(0,0,0,.3);
+}
+.nav2 .icon1:before{
+	content: '';
+	width: 15px;
+	height:15px;
+	background: url("../images/huiyuan_12.jpg") no-repeat;
+	position: absolute;
+	top:17px;
+	right:26px; 
+}
+********/
+
+
+
+
+.mright{
+	width:73%;
+	height:100%;
+	float:right;
+}
+.zhuanzhang{
+	width:50%;
+	position:relative;
+}
+.total,.phone1,.phone2,.num,.yanzhengma{
+	width:100%;
+	height:61px;
+	margin-top:35px;
+}
+.total div,.phone1 div,.phone2 div,.num div,.yanzhengma div{
+	float:right;
+	width:46%;
+	height:61px;
+}
+.total input,.phone1 input,.phone2 input,.num input,.yanzhengma input{
+	width:100%;
+	height:57px;
+	border:2px solid #ababab;
+	font-size:18px;
+}
+.total p,.phone1 p,.phone2 p,.num p,.yanzhengma p{
+	float:right;
+	line-height:61px;
+	font-size:24px;
+	margin-right:50px;
+}
+/*.total{*/
+	/*margin-top:190px;*/
+/*}*/
+.total div{
+	line-height:61px;
+	font-size:20px;
+	color:#c9c9c9;
+}
+.phone2{
+	position:relative;
+}
+.phone2 span{
+	font-size:22px;
+	color:#fd6502;
+	position:absolute;
+	top:20px;
+	right:-150px;
+	cursor: pointer;
+}
+.phone1{
+	position:relative;
+	
+}
+/****电话下拉列表****/
+.phones{
+	position:absolute;
+	top:61px;
+	right:0px;
+	z-index:10;
+	width:357px;
+	height:150px;
+	background:#fff;
+	box-shadow:0px 5px 9px #52534e;
+	display:none;
+}
+/****转账成功弹窗****/
+.sucess{
+	position:absolute;
+	top:300px;
+	left:300px;
+	z-index:10;
+	width:502px;
+	height:220px;
+	background:#fff;
+	box-shadow:0px 5px 10px #585954;
+	font-size:48px;
+	color:#fc6400;
+	line-height:220px;
+	text-align:center;
+	display:none;
+}
+.huoqu{
+	cursor: pointer;
+	font-size: 20px;
+	color:orange;
+	position: relative;
+	top: 20px;
+	left: 524px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.zzsubmit{
+	width:90%;
+	height:61px;
+	margin-left:24%;
+	margin-top:97px;
+}
+.zzsubmit input{
+	width:100%;
+	height:100%;
+	background:#fc6500;
+	color:#fff;
+	font-size:26px;
+	border:0px solid red;
+	cursor: pointer;
+}
+
+
+/*.footer{*/
+	/*width:100%;*/
+	/*height:98px;*/
+	/*background:#000;*/
+	/*overflow:hidden;*/
+/*}*/
+.fmain{
+	width:652px;
+	height:100%;
+	margin:0 auto;
+}
+.fmain p{
+	font-size:16px;
+	color:#979797;
+	line-height:98px;
+}
+.copyright{
+	float:left;
+}
+.beian{
+	float:right;
+}
+
+
+@media screen and (max-width: 414px){
+	.huoqu{
+	cursor: pointer;
+	font-size: 14px;
+	color:orange;
+	position: relative;
+	top: 10px;
+	left: 360px;
+}
+	.mleft{
+		display:none;
+	}
+	.mright{
+		margin-right:18%;
+		width:90%;
+	}
+	.zhuanzhang{
+		width:100%;
+	}
+	.total,.phone1,.phone2,.num,.yanzhengma{
+		width:100%;
+		height:40px;
+	}
+	.total div,.phone1 div,.phone2 div,.num div,.yanzhengma div{
+		width:57%;
+		height:40px;
+	}
+	.total input,.phone1 input,.phone2 input,.num input,.yanzhengma input{
+		height:36px;
+		font-size:14px;
+		width: 90%;
+	}
+	.total p,.phone1 p,.phone2 p,.num p,.yanzhengma p{
+		line-height:40px;
+		font-size:14px;
+		margin-right:5px;
+	}
+	.phone2 span{
+		font-size:12px;
+		position:absolute;
+		top:15px;
+		right:-55px;
+	}
+	.total div{
+		line-height:40px;
+		font-size:20px;
+	}
+	.zzsubmit{
+		margin-left:20%;
+		margin-top:50px;
+	}
+	.fmain{
+		width:90%;
+	}
+	.fmain p{
+		width:100%;
+		height:49px;
+		text-align:center;
+		font-size:14px;
+		line-height:49px;
+	}
+	.copyright,.beian{
+		clear:both;	
+		margin:0 auto;
+	}
+	.main{
+		height:500px;
+	}
+	.total{
+		margin-top:20px;
+	}
+}
+
+@media screen and (max-width: 375px){
+	.mright{
+		margin-right:17%;
+	}
+	.huoqu{
+	cursor: pointer;
+	font-size: 14px;
+	color:orange;
+	position: relative;
+	top: 10px;
+	left: 326px;
+	}
+}
+
+
+@media screen and (max-width: 320px){
+	.huoqu{
+	cursor: pointer;
+	font-size: 14px;
+	color:orange;
+	position: relative;
+	top: 10px;
+	left: 280px;
+	}
+	.mright{
+		margin-right:20%;
+	}
+	.total,.phone1,.phone2,.num,.yanzhengma{
+		margin-top:20px;
+	}
+	.total div,.phone1 div,.phone2 div,.num div,.yanzhengma div{
+		width:51%;
+	}
+	.total input,.phone1 input,.phone2 input,.num input,.yanzhengma input{
+		font-size:10px;
+	}
+	.total p,.phone1 p,.phone2 p,.num p,.yanzhengma p{
+		font-size:10px;
+		margin-right:0px;
+	}
+	.phone2 span{
+		font-size:10px;
+		right:-63px;
+	}
+	.zzsubmit{
+		height:40px;
+		margin-top:40px;
+	}
+	.zzsubmit input{
+		font-size:20px;
+	}
+	.total div{
+		font-size:16px;
+		line-height:40px;
+	}
+	.main{
+		height:420px;
+	}
+	/*.footer{*/
+		/*height:70px;*/
+	/*}*/
+	.fmain p{
+		height:35px;
+		font-size:12px;
+		line-height:35px;
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

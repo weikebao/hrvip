@@ -1,0 +1,417 @@
+*{margin:0px;padding:0px;list-style:none;text-decoration:none;}
+body{width:100%;background:#f6f6f6;}
+/*.header{*/
+	/*width:100%;*/
+	/*height:120px;*/
+	/*background:#404145;	*/
+	/*overflow:hidden;*/
+/*}*/
+
+
+
+
+
+
+.czleft{
+	width:35%;
+	height:100%;
+	float:left;
+}
+.czleft img{
+	width:16%;
+	float:left;
+	margin-top:13px;
+	margin-left:76px;
+}
+.czleft p{
+	width:65%;
+	float:right;
+	font-size:22px;
+	color:#fff;
+	line-height:120px;
+}
+.czright{
+	width:60%;
+	float:right;
+	height:116px;
+	background:#000;
+}
+.czright li{
+	float:left;
+	padding:50px 18px;
+}
+.czright li a{
+	color:#fff;
+	font-size:14px;
+}
+
+
+
+
+
+.content{
+	width:90%;
+	height:auto;
+	margin:0 auto;
+	overflow:hidden;
+}
+.location{
+	width:100%;
+	height:150px;
+}
+.location p{
+	font-size:22px;
+	color:#f6a904;
+	line-height:150px;
+	margin-left:2%;
+}
+.xianshi{
+	width:100%;
+	height:120px;
+}
+.pic{
+	float:left;
+	width:15%;
+}
+.pic img{
+	width:100%;
+}
+.txt{
+	float:left;
+	width:55%;
+	height:100%;
+	margin-left:5%;
+}
+.txt p{
+	font-size:16px;
+	line-height:40px;
+}
+.txt1{
+	margin-top:20px;
+}
+.money{
+	float:right;
+	width:25%;
+	height:100%;
+	line-height:120px;
+	font-size:22px;
+	color:#ff9b00;
+	text-align:center;
+}
+.line{
+	width:100%;
+	height:3px;
+	background:#8d8d8d;
+	margin-top:13px;
+}
+.buttons{
+	width:100%;
+	height:500px;
+}
+.btns{
+	width:100%;
+	height:100px;
+	margin-top:110px;
+}
+.btns div{
+	width:18%;
+	height:60px;
+	float:left;
+	box-shadow:5px 5px 10px #70726e;
+}
+.btns input{
+	width:100%;
+	height:100%;
+	background:#e6e6e6;
+	font-size:24px;
+	border:0px solid red;
+}
+.btn1{
+	margin-left:4%;
+}
+.btn2,.btn3{
+	margin-left:5.5%;
+}
+.submit{
+	width:38%;
+	height:70px;
+	margin:0 560px;
+	margin-top:120px;
+}
+.submit input{
+	width:100%;
+	height:100%;
+	background:#ff7c3c;
+	font-size:26px;
+	border:0px solid red;
+}
+
+
+
+
+
+/******支付弹窗******/
+
+.tanchuang{
+	width:80%;
+	height:200px;
+	margin:0 auto;
+	margin-top:20px;
+	display:block;
+	text-align:center;
+}
+.cztupian{
+	width:20%;
+	float:left;
+}
+.cztupian img{
+	width:100%;
+	
+}
+.czbiaoge{
+	width:50%;
+	float:right;
+	margin-top:50px;
+}
+.czbiaoge table{
+	width:100%;
+
+}
+.czbiaoge table th,.czbiaoge table td{
+	width:25%;
+	height:50px;
+	font-size:16px;
+}
+.czbiaoge table th{
+	height:40px;
+}
+
+
+
+/*.footer{*/
+	/*width:100%;*/
+	/*height:98px;*/
+	/*background:#000;*/
+	/*overflow:hidden;*/
+/*}*/
+/*.fmain{*/
+	/*width:652px;*/
+	/*height:100%;*/
+	/*margin:0 auto;*/
+/*}*/
+/*.fmain p{*/
+	/*font-size:16px;*/
+	/*color:#979797;*/
+	/*line-height:98px;*/
+/*}*/
+/*.copyright{*/
+	/*float:left;*/
+/*}*/
+/*.beian{*/
+	/*float:right;*/
+/*}*/
+
+@media screen and (max-width: 414px){
+	.location{
+		height:80px;
+	}
+	.location p{
+		font-size:18px;
+		line-height:80px;
+	}
+	.pic{
+		display:none;
+	}
+	.txt{
+		width:66%;
+		margin-left:0%;
+	}
+	.txt p{
+		font-size:14px;
+		line-height:30px;
+	}
+	.buttons{
+		height:auto;
+		padding-bottom:30px;
+	}
+	.btns{
+		width:100%;
+		height:300px;
+		margin-top:10px;
+	}
+	.btns div{
+		clear:both;
+		width:70%;
+		height:50px;
+		margin-left:15%;
+		margin-top:30px;
+	}
+	.btns input{
+		font-size:20px;
+	}
+	.submit{
+		width:100%;
+		height:60px;
+		margin-top:40px;
+	}
+	.submit{margin:0 auto;}
+	.submit input{
+		font-size:24px;
+	}
+	.fmain{
+		width:90%;
+	}
+	.fmain p{
+		width:100%;
+		height:49px;
+		text-align:center;
+		font-size:14px;
+		line-height:49px;
+	}
+	.copyright,.beian{
+		clear:both;	
+		margin:0 auto;
+	}
+
+
+	/******支付弹窗******/
+	.tanchuang{
+		width:100%;
+	}
+	.cztupian{
+		width:80%;
+		margin-left:10%;
+		clear:both;
+	}
+	.czbiaoge{
+		width:100%;
+		clear:both;
+		margin-top:20px;
+		margin:0 auto;
+	}
+	.tanchuang{
+		height:440px;
+	}
+
+
+}
+
+@media screen and (max-width: 375px){
+	.location{
+		height:50px;
+	}
+	.location p{
+		font-size:14px;
+		line-height:60px;
+	}
+	.txt{
+		width:60%;
+		margin-left:0%;
+	}
+	.txt p{
+		font-size:14px;
+		line-height:30px;
+	}
+	.money{
+		width:30%;
+	}
+	
+}
+
+@media screen and (max-width: 320px){
+	.location{
+		height:30px;
+	}
+	.location p{
+		font-size:12px;
+		line-height:60px;
+	}
+	.xianshi{
+		height:80px;
+	}
+	.txt{
+		width:66%;
+		margin-left:0%;
+	}
+	.txt p{
+		font-size:12px;
+		line-height:20px;
+	}
+	.money{
+		width:25%;
+		line-height:80px;
+		font-size:18px;
+	}
+	
+	.btns{
+		height:200px;
+	}
+	.btns div{
+		height:40px;
+	}
+	.btns input{
+		font-size:16px;
+	}
+	.submit{
+		width:100%;
+		height:50px;
+		margin-top:60px;
+	}
+	.submit input{
+		font-size:22px;
+	}
+	/*.footer{*/
+		/*height:70px;*/
+	/*}*/
+	.fmain p{
+		height:35px;
+		font-size:12px;
+		line-height:35px;
+	}
+
+
+
+
+	/******支付弹窗******/
+	
+	.tanchuang{
+		height:250px;
+		width:100%;
+	}
+	.czbiaoge table th, .czbiaoge table td{
+		height:30px;
+	}
+	.czbiaoge table th{
+		height:20px;
+	}
+	.czbiaoge{
+		font-size:14px;
+	}
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

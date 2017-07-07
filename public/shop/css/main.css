@@ -1,0 +1,162 @@
+@charset "UTF-8";
+/** 重要的 CSS  Aaron D 2017.5.4  */
+* { box-sizing: border-box; }
+
+html { font-size: 62.5%; }
+
+body { font-family: '微软雅黑'; margin: 0; }
+
+a { text-decoration: none; }
+
+.boxFlex { display: -webkit-box; display: box; }
+
+.Flex1 { display: block; -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; }
+
+hr { display: block; height: 6px; border: 0; margin: 0; padding: 0; background: #eee; }
+
+ul, li { margin: 0; padding: 0; list-style: none; }
+
+.w1280, .content, .topBar .inner, .category .inner { width: 1280px; margin: auto; }
+
+.topBar { height: 98px; background: #222; }
+.topBar .inner { overflow: hidden; }
+.topBar .inner .logo { float: left; background: #404145; }
+.topBar .inner .logo > img { height: 100%; }
+
+.menu { height: 98px; line-height: 98px; }
+.menu span { font-size: 1.4rem; color: #fff; text-align: center; border-top: 3px solid transparent; }
+.menu span.on { color: #D69C00; }
+
+.banner { margin: auto; overflow: hidden; }
+.banner > img { display: block; width: 100%; }
+.banner .swiper-wrapper { height: auto; }
+.banner .swiper-wrapper .swiper-slide { height: auto; }
+.banner .swiper-wrapper .swiper-slide > img { display: block; width: 100%; }
+
+.service > img { width: 100%; min-width: 1280px; }
+
+.footer { height: 70px; line-height: 70px; text-align: center; color: #fff; background: #222; }
+
+.tab { font-size: .85rem; background: #333; }
+.tab span { line-height: 50px; color: #fff; text-align: center; }
+.tab span:nth-child(2) { border-right: 1px solid #666; border-left: 1px solid #666; }
+.tab span > img { width: 24px; margin-right: 8px; vertical-align: middle; }
+
+.moreBody { display: none; }
+
+.icon { display: inline-block; width: 14px; height: 14px; margin-right: 3px; margin-top: 3px; vertical-align: top; }
+.icon.icon-address { background: url(../images/address.png) center/contain no-repeat; }
+.icon.icon-num { background: url(../images/num.png) center/contain no-repeat; }
+.icon.icon-kilo { background: url(../images/kilo.png) center/contain no-repeat; }
+.icon.icon-phone { background: url(../images/phone.png) center/contain no-repeat; }
+.icon.icon-doller { background: url(../images/doller.png) center/contain no-repeat; }
+.icon.icon-doller2 { background: url(../images/doller2.png) center/contain no-repeat; }
+.icon.icon-time { background: url(../images/time.png) center/contain no-repeat; }
+.icon.icon-shop { background: url(../images/shop.png) center/contain no-repeat; }
+
+.category { background: #fff; }
+.category .inner { padding-left: 230px; }
+.category .inner span { display: inline-block; width: 100px; height: 60px; line-height: 60px; border-left: 1px solid #C7C7C7; }
+.category .inner span a { display: block; text-align: center; }
+
+.sideBar { width: 200px; margin-right: 30px; }
+.sideBar > h2 { color: #D69C00; }
+.sideBar .aBlock li > a { display: block; height: 34px; line-height: 34px; margin: 8px 0; padding: 0 10px; background: #fff; border: 1px solid #C7C7C7; }
+.sideBar .aBlock li.on a { text-align: right; color: #fff; background: url(../images/bg2.jpg) center/100% 100%; }
+
+.contentBody { margin: 30px 0; }
+.contentBody .serach { display: inline-block; margin-bottom: 30px; border: 1px solid #C7C7C7; }
+.contentBody .serach input { float: left; width: 250px; height: 30px; line-height: 30px; padding: 0 5px; border: 0; }
+.contentBody .serach .go { float: left; height: 30px; background: #AAAAAA; }
+.contentBody span.del { float: right; margin: 0 !important; cursor: pointer; }
+.contentBody .orderT { padding: 8px; background: #ddd; border: 1px solid #C7C7C7; }
+.contentBody .orderT span { margin: 0 5px; }
+.contentBody .orderB li { margin-top: 5px; }
+.contentBody .orderB li > div { margin: 5px 0; border: 1px solid #C7C7C7; overflow: hidden; }
+.contentBody .orderB li > div:first-child { padding: 8px; background: #ddd; }
+.contentBody .orderB li > div:last-child { background: #fff; }
+.contentBody .orderB li > div:last-child > span { float: left; display: inline-block; height: 120px; padding: 10px; border-right: 1px solid #C7C7C7; }
+.contentBody .orderB li > div:last-child > span:nth-child(1) { width: 350px; }
+.contentBody .orderB li > div:last-child > span:nth-child(1) > div { float: left; margin-right: 10px; }
+.contentBody .orderB li > div:last-child > span:nth-child(1) > div > span { display: block; }
+.contentBody .orderB li > div:last-child > span:nth-child(2) { width: 100px; }
+.contentBody .orderB li > div:last-child > span:nth-child(3) { width: 150px; }
+.contentBody .orderB li > div:last-child > span:nth-child(4) { width: 200px; }
+
+.now { height: 30px; line-height: 30px; margin: 20px 0; color: #D69C00; }
+
+.orderStatus { height: 30px; line-height: 30px; padding: 0 10px; background: #ddd; border: 1px solid #999; }
+
+.orderInfo { margin: 30px 0; padding: 10px; border: 1px solid #999; }
+.orderInfo .orderTxt > div { padding-bottom: 10px; border-bottom: 1px solid #999; }
+.orderInfo .orderTxt > div:last-child { border-bottom: 0; }
+.orderInfo .orderTxt > div span { display: inline-block; width: 200px; }
+.orderInfo .orderTxt > div .orderTable { margin: 10px 0; }
+.orderInfo .orderTxt > div .orderTable .orderT { height: 40px; line-height: 40px; text-align: center; background: #ddd; border: 1px solid #999; border-bottom: 0; overflow: hidden; clear: both; }
+.orderInfo .orderTxt > div .orderTable .orderT span { float: left; }
+.orderInfo .orderTxt > div .orderTable .orderB { background: #fff; border: 1px solid #999; overflow: hidden; }
+.orderInfo .orderTxt > div .orderTable .orderB span { float: left; text-align: center; }
+.orderInfo .orderTxt > div .orderTable .orderB span:first-child { width: 200px; }
+.orderInfo .orderTxt > div .orderTable .orderB span:first-child div { float: left; width: 120px; }
+
+.coinBox .coinInfo { width: 60%; height: 60px; line-height: 60px; margin: auto; text-align: center; color: #D69C00; font-size: 1.5rem; background: #ddd; }
+.coinBox .form { width: 60%; margin: 30px auto; }
+.coinBox .form span { display: block; margin-bottom: 10px; }
+.coinBox .form span b { display: inline-block; width: 150px; }
+.coinBox .form span input { width: 50%; height: 30px; line-height: 30px; }
+.coinBox .form .btn { width: 30%; margin: 30px auto 0; padding: 10px; color: #fff; text-align: center; background: #FD6500; }
+
+.recharge { width: 80%; margin: auto; margin-bottom: 80px; padding-bottom: 30px; text-align: center; border-bottom: 1px solid #999; overflow: hidden; }
+.recharge span { display: inline-block; float: left; margin-right: 30px; overflow: hidden; }
+.recharge span:first-child { width: 100px; }
+.recharge span:first-child img { width: 100%; }
+.recharge span:last-child { float: right; display: inline-block; width: 100px; line-height: 70px; }
+.recharge span:last-child img { width: 100%; }
+
+.rechargeWay { text-align: center; }
+.rechargeWay span { display: inline-block; width: 20%; height: 40px; line-height: 40px; margin: 0 5%; text-align: center; background: #ddd; border: 1px solid #999; }
+.rechargeWay .btn { width: 240px; margin: 150px auto; padding: 10px; color: #fff; text-align: center; background: #FD6500; }
+
+.pay { position: relative; }
+.pay .orderTxt b { padding: 4px 10px; background: #ddd; cursor: pointer; }
+.pay .orderTxt .add { position: absolute; top: 15px; right: 30px; color: #D69C00; }
+.pay .orderTxt .coin { width: 100px; padding: 4px 10px; text-align: center; background: #eee; }
+.pay .orderTxt .orderB { border: 0 !important; }
+.pay .orderTxt .orderB span:first-child { width: 400px !important; text-align: left !important; }
+.pay .orderTxt .orderB span:first-child p { margin-left: 140px; }
+.pay .orderTxt .beizhu textarea { width: 50%; height: 80px; }
+.pay .orderTxt .feiyong p { text-align: right; }
+.pay .orderTxt .feiyong p b { display: inline-block; width: 200px; background: none; }
+
+.payNum { height: 60px; line-height: 60px; margin-bottom: 50px; text-align: right; font-size: 1.4rem; font-weight: bold; background: #eee; }
+.payNum .btn { float: right; width: 150px; height: 100%; margin-left: 30px; color: #fff; text-align: center; background: url(../images/bg3.jpg) center/100%; cursor: pointer; }
+
+.newAddress { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1; background: rgba(0, 0, 0, 0.65); }
+.newAddress .inner { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 540px; height: 550px; margin: auto; padding: 50px; background: #fff; }
+.newAddress .inner div { margin: 30px 0; }
+.newAddress .inner div.btn { width: 60%; margin: 60px auto; padding: 10px; text-align: center; background: #ddd; }
+.newAddress .inner div > span { display: inline-block; width: 100px; }
+.newAddress .inner div > input { width: 330px; height: 50px; }
+.newAddress .inner .close { position: absolute; top: 20px; right: 30px; z-index: 1; }
+
+.cartBox .contentBody .orderT span { display: inline-block; width: 70px; margin: 0; text-align: center; }
+.cartBox .contentBody .orderT span:nth-child(3) { width: 240px; }
+.cartBox .contentBody .orderT span:nth-child(4) { width: 250px; }
+.cartBox .contentBody .orderT span:nth-child(5) { width: 150px; }
+.cartBox .contentBody .orderT span:nth-child(6) { width: 232px; }
+.cartBox .contentBody .orderB li > div:last-child > span { text-align: center; border: 0; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(1) { width: 50px; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(1) input { margin-top: 45px; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(2) { width: 350px; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(2) > div { float: left; margin-right: 10px; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(2) > div > span { display: block; text-align: left; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(3) { width: 250px; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(4) { width: 150px; color: #D69C00; }
+.cartBox .contentBody .orderB li > div:last-child > span:nth-child(5) { width: 232px; border: 0; }
+.cartBox .spinner > button { color: #D69C00; background: #fff; border: 1px solid #888; }
+.cartBox .spinner .spinnerExample { width: 40px; color: #D69C00; text-align: center; border: 0; }
+.cartBox .orderBottom { height: 60px; line-height: 60px; text-align: right; font-size: 1.4rem; font-weight: bold; border: 1px solid #999; }
+.cartBox .orderBottom > span { display: inline-block; margin: 0 30px; }
+.cartBox .orderBottom .btn { float: right; width: 150px; height: 100%; margin-left: 30px; color: #fff; text-align: center; background: url(../images/bg3.jpg) center/100%; border-left: 1px solid #999; cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,5 @@
+#pages ul li{
+	list-style:none;
+	margin:5px;
+	float:left;
+}

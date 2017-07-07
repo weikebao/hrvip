@@ -1,0 +1,93 @@
+<div class="inner">
+    <div class="top clear">
+        <h3 class="box">对身材的关心</h3>
+        <h3 class="box">内衣的穿护之道</h3>
+        <h3 class="box">挑选你的准数内衣</h3>
+    </div>
+    <div class="bottom clear">
+        <div class="left clear">
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic1.png" /></div>
+                    <p class="text">了解自己的胸型</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic2.png" /></div>
+                    <p class="text">内衣的穿戴步骤</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic3.png" /></div>
+                    <p class="text">清楚自己的尺码</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic4.png" /></div>
+                    <p class="text">内衣的洗涤</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic5.png" /></div>
+                    <p class="text">寻找你的美丽密码</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic6.png" /></div>
+                    <p class="text">内衣的折叠及保存</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+        </div>
+        <div class="right clear">
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic7.png" /></div>
+                    <p class="text">选购内衣的要点</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+            <div class="box">
+                <a href="javascript:;">
+                    <div class="pic"><img src="/qiantai/images/nydb_pic8.png" /></div>
+                    <p class="text">内外衣的搭配</p>
+                    <div class="icon"><img src="/qiantai/images/mlmm_icon1.png" /></div>
+                </a>
+                <div class="dbmodel"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $(".bottom .box>a").each(function(i){
+
+        $(this).on("click",function(){
+            $(".dbmodel").each(function(){
+                $(this).hide();
+            })
+            $(".dbmodel").eq(i).load("/qiantai/data/mlmm_xx/duben"+(i+1)+".html",function(){
+                $(".close").on("click",function(){
+                    $(this).parents('.dbmodel').hide();
+                })
+            }).show()
+        })
+    })
+</script>

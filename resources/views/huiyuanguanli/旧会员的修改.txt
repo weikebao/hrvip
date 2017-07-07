@@ -1,0 +1,258 @@
+
+  	//求取这个人的信息
+    $res = DB::table('vip_huiyuan')->where('id',$id)->first();
+    //判断这个人是否是推荐人
+    if($res['tui'] !=0)
+    {
+      return back()->with('error','此会员已经推荐子级会员了');
+    }else
+    {
+      //判断此人是否为推荐人下的第一代会员
+      if($res['fujiedian'] == $res['tuijiedian'])
+      {
+       /*
+       		此人是会员下的第一个人
+       		判断是左区间还是右区间
+       		修改他的下边的人的辅助人信息
+       		修改他的主推人的左右节点的信息
+       		修改他的主推人的区间总人数的信息
+       */
+       	//获取他的主推人的辅导人的UID
+       		$fuijiedian = $res['tuijiedian'];
+       	//求取他的主推人的信息
+       		$res1 = DB::table('vip_huiyuan')->where('id',$fuijiedian)->first();
+       	//判断这个人是主推人的左节点还是右节点
+       	if($res['id'] == $res1['zuojiedian'])
+       	{
+       		/*
+       			说明这个人是主推人的左节点
+       			判断这个人是否辅助了别人
+       			修改这个人的推荐人的总人数
+       			修改这个人的左节点
+       			判断他是否为辅助人
+       		*/
+       			//求取被辅助人的信息
+       			$res2 = DB::table('vip_huiyuan')->where('fujiedian',$res['id'])->first();
+       			if($res2)
+       			{
+       				/*
+       					说明这个人辅助了别人
+       					求取他辅助的人的信息
+       					将辅助人的辅助节点改为主推人的节点
+       					将主推人的左节点改为辅助人的uid
+       				*/
+       					//修改了被辅助人的信息
+       					$res5 = DB::table('vip_huiyuan')->where('fujiedian',$id)->update(['fujiedian'=>$res2['tuijiedian']]);
+       					//修改了主推荐人的信息
+       					$num = $res1['zuoqujian']-1;
+       					$res6 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['zuoqujian'=>$num,'zuojiedian'=>$res2['id']]);
+       					//删除这个人的信息
+       					$res7 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+       					if($res5 && $res6 && $res7)
+       					{
+                  AdminUserController::jilu('删除会员成功','3');
+       						return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+       					}else
+       					{
+                  AdminUserController::jilu('删除会员失败--5','3');
+       						return back()->with('error','左节点系统错误---0');
+       					}
+       			}else
+       			{
+       				/*
+       					说明没有辅助别人
+       					修改这个人的本身信息
+       					修改推荐人的左节点和左区间的人数
+       				*/
+       					//删除了这个人的信息
+       					$res3 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+       					//修改了主推人的信息
+       					$num = $res1['zuoqujian']-1;
+       					$res4 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['zuoqujian'=>$num,'zuojiedian'=>0]);
+       					if($res3 && $res4)
+       					{
+                   AdminUserController::jilu('删除会员成功','3');
+       						return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+       					}else
+       					{
+                  AdminUserController::jilu('删除会员失败--4','3');
+       						return back()->with('error','左节点系统错误--1');
+       					}
+       			}
+       	}else if($res['id'] ==$res1['youjiedian'])
+       	{
+       		//说明这个人是主推人的右节点
+       		//求取被辅助人的信息
+       			$res2 = DB::table('vip_huiyuan')->where('fujiedian',$res['id'])->first();
+       			if($res2)
+       			{
+       				/*
+       					说明这个人辅助了别人
+       					求取他辅助的人的信息
+       					将辅助人的辅助节点改为主推人的节点
+       					将主推人的右节点改为辅助人的uid
+       				*/
+       					//修改了被辅助人的信息
+       					$res5 = DB::table('vip_huiyuan')->where('fujiedian',$id)->update(['fujiedian'=>$res2['tuijiedian']]);
+       					//修改了主推荐人的信息
+       					$num = $res1['youqujian']-1;
+       					$res6 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['youqujian'=>$num,'youjiedian'=>$res2['id']]);
+       					//删除这个人的信息
+       					$res7 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+       					if($res5 && $res6 && $res7)
+       					{
+                   AdminUserController::jilu('删除会员成功','3');
+       						return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+       					}else
+       					{
+                  AdminUserController::jilu('删除会员失败--3','3');
+       						return back()->with('error','右节点系统错误---0');
+       					}
+       			}else
+       			{
+       				/*
+       					说明没有辅助别人
+       					修改这个人的本身信息
+       					修改推荐人的左节点和左区间的人数
+       				*/
+       					//删除了这个人的信息
+       					$res3 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+       					//修改了主推人的信息
+       					$num = $res1['youqujian']-1;
+       					$res4 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['youqujian'=>$num,'youjiedian'=>0]);
+       					if($res3 && $res4)
+       					{
+                   AdminUserController::jilu('删除会员成功','3');
+       						return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+       					}else
+       					{
+                  AdminUserController::jilu('删除会员失败--2','3');
+       						return back()->with('error','右节点系统错误--1');
+       					}
+       			}
+       	}else
+       	{
+       		return back()->with('error','系统节点错误');
+       	}
+      }else
+      { 
+      	//获取他的主推人的辅导人的UID
+       		$fuijiedian = $res['tuijiedian'];
+      	//再次求取他的主推人的信息
+       		$res1 = DB::table('vip_huiyuan')->where('id',$fuijiedian)->first();
+      	/*
+			此人不是第一代的会员
+			判断他的位置是左区间还是右区间
+      	*/
+		if($res['qujiancode']=='左区间')
+		{
+			/*
+				说明此人是左区间的
+				判断他是否辅助了别人
+			*/
+				//他辅助的人的信息
+				$res8 = DB::table('vip_huiyuan')->where('fujiedian',$uid)->first();
+				if($res8)
+				{
+					/*
+						说明此人了辅助了别人
+						修改他辅助的人的辅助节点为此人的辅助节点
+						修改他的直推人的左区间的人数
+					*/
+						//修改被辅助的人的信息
+						$res9  = DB::table('vip_huiyuan')->where('id',$res8['id'])->update(['fujiedian'=>$res['fujiedian']]);
+						//修改删除的此人的信息
+						$res10 = DB::table('vip_huiyuan')->where('id',$uid)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+						//修改主推人的左区间的人数
+						$num = $res1['youqujian']-1;
+						$res11 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['zuoqujian'=>$num]);
+						if($res9 && $res10 && $res11)
+						{
+               AdminUserController::jilu('删除会员成功','3');
+							return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+						}else
+						{
+              AdminUserController::jilu('删除会员失败--10','3');
+							return back()->with('error','左区间左节点系统错误--0');
+						}
+				}else
+				{
+					/*
+						说明此人没有辅助别人
+						修改他的直推人的左区间的人数
+					*/
+						//修改主推人的左区间的人数
+						$num = $res1['youqujian']-1;
+						$res12 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['zuoqujian'=>$num]);
+						//修改删除的此人信息
+						$res13 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+
+						if($res12 && $res13)
+						{
+               AdminUserController::jilu('删除会员成功','3');
+							return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+						}else
+						{
+              AdminUserController::jilu('删除会员失败--11','3');
+							return back()->with('error','左区间右节点系统错误--1');
+						}
+				}
+		}else if($res['qujiancode']=='右区间')
+		{
+			/*
+				 说明此人是右区间
+				 判断此人是否辅助了别人
+			*/
+				 //他辅助的人的信息
+				$res8 = DB::table('vip_huiyuan')->where('fujiedian',$uid)->first();
+				if($res8)
+				{
+					/*
+						说明此人了辅助了别人
+						修改他辅助的人的辅助节点为此人的辅助节点
+						修改他的直推人的右区间的人数
+					*/
+						//修改被辅助的人的信息
+						$res9  = DB::table('vip_huiyuan')->where('id',$res8['id'])->update(['fujiedian'=>$res['fujiedian']]);
+						//修改删除的此人的信息
+						$res10 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+						//修改主推人的右区间的人数
+						$num = $res1['youqujian']-1;
+						$res11 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['youqujian'=>$num]);
+						if($res9 && $res10 && $res11)
+						{
+               AdminUserController::jilu('删除会员成功','3');
+							return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+						}else
+						{
+              AdminUserController::jilu('删除会员失败--0','3');
+							return back()->with('error','右区间左节点系统错误--0');
+						}
+				}else
+				{
+					/*
+						说明此人没有辅助别人
+						修改他的直推人的右区间的人数
+					*/
+						//修改主推人的右区间的人数
+						$num = $res1['youqujian']-1;
+						$res12 = DB::table('vip_huiyuan')->where('id',$res1['id'])->update(['youqujian'=>$num]);
+						//修改删除的此人信息
+						$res13 = DB::table('vip_huiyuan')->where('id',$id)->update(['s'=>0,'tuijiedian'=>0,'fujiedian'=>0]);
+
+						if($res12 && $res13)
+						{
+               AdminUserController::jilu('删除会员成功','3');
+							return redirect('/admin/tuihuiyuan/list')->with('success','删除会员成功');
+						}else
+						{
+              AdminUserController::jilu('删除会员失败--1','3');
+							return back()->with('error','右区间右节点系统错误--1');
+						}
+				}
+		}else
+		{
+			return back()->with('error','系统区间错误');
+		}
+      }
+    }

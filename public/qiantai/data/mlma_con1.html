@@ -1,0 +1,142 @@
+<div class="inner">
+    <div class="tab1">
+        <div class="left xuanxiang">
+            <a href="javascript:;"><img src="/qiantai/images/mlmm_yf1_03.jpg" /></a>
+        </div>
+        <div class="left xuanxiang">
+            <a href="javascript:;"><img src="/qiantai/images/mlmm_yf1_05.jpg" /></a>
+        </div>
+    </div>
+    <div class="tab2">
+        <ul class="tabnav clear">
+            <li class="ac"><a href="javascript:;">我们的研究</a></li>
+            <li><a href="javascript:;">我们的开发</a></li>
+        </ul>
+        <div class="box1 box">
+            <div class="top">
+                <p class="text1">通过形态研究，动态研究，生理和心理研究，为大陆不同年龄不同需求的女性开发专属产品，力求开发技术审美与生理舒适性完美结合的新商品。</p>
+                <p class="text1">科技，美丽的最佳支点</p>
+            </div>
+            <div class="bottom">
+                <ul class="fenlei clear">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/yanjiu_pic1.png" /></div>
+                            <p class="tit">形态研究</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="xtbox flmodel"></div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/yanjiu_pic2.png" /></div>
+                            <p class="tit">动态研究</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="dtbox flmodel"></div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/yanjiu_pic3.png" /></div>
+                            <p class="tit">生理研究</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="slbox flmodel"></div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/yanjiu_pic4.png" /></div>
+                            <p class="tit">心理研究</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="xlbox flmodel"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="box2 box">
+            <div class="top">
+                <p class="text1">一切，为美丽存在</p>
+                <p class="text1">岁月转换，时尚变迁，我们不断调整视点，发掘新的需求，每一季都会有凝聚我们智慧和心血的新产品诞生。</p>
+            </div>
+            <div class="bottom">
+                <ul class="fenlei clear">
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/kaifa_pic1.png" /></div>
+                            <p class="tit">魅力3D</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="mlbox flmodel2"></div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/kaifa_pic2.png" /></div>
+                            <p class="tit">塑身衣</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="ssybox flmodel2"></div>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <div class="pic"><img src="/qiantai/images/kaifa_pic3.png" /></div>
+                            <p class="tit">心禧爱</p>
+                            <div class="icon"><img src="/qiantai/images/yanjiu_icon1.png" /></div>
+                        </a>
+                        <div class="xxabox flmodel2"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    $(".xuanxiang").each(function(i){
+        $(this).on("click",function(){
+            $(".tab1").hide();
+            $(".tab2").fadeIn("fast");
+            $(".tabnav li").eq(i).addClass("ac").siblings().removeClass("ac");
+            $(".yfzx .box").eq(i).fadeIn("fast").siblings(".box").hide();
+        })
+    })
+
+    $(".tabnav li").each(function(i){
+        $(this).on("click",function(){
+            $(this).addClass("ac").siblings().removeClass("ac");
+            $(".yfzx .box").eq(i).fadeIn("fast").siblings(".box").hide();
+        })
+    })
+
+    //弹窗
+    $(".box1 li a").each(function(i){
+        $(this).on("click",function(){
+            $(".flmodel").each(function(){
+                $(this).hide();
+            })
+            $(".flmodel").eq(i).load("/qiantai/data/mlmm_xx/yanjiu"+(i+1)+".html",function(){
+                $(".close").on("click",function(){
+                    $(this).parents('.flmodel').hide();
+                })
+            }).show();
+        })
+    })
+
+    $(".box2 li a").each(function(i){
+        $(this).on("click",function(){
+            $(".flmodel2").each(function(){
+                $(this).hide();
+            })
+            $(".flmodel2").eq(i).load("/qiantai/data/mlmm_xx/kaifa"+(i+1)+".html",function(){
+                $(".close").on("click",function(){
+                    $(this).parents('.flmodel2').hide();
+                })
+            }).show();
+        })
+    })
+
+
+
+</script>
