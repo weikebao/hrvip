@@ -13,8 +13,8 @@ class AdminFeiyongController extends Controller {
 		//加载费用统计表加载每个月的以及每日的指最近一个月的
 		//查询数据库  肯定是30条数据  
 		$time = date('Y-m-d H:i:s',time()-3600*24*30);
-		$res1 = DB::table('vip_fanlijilu')->where('Jtime','>',$time)->orderBy('yfanmoney','desc')->paginate(30);
-		$res = DB::table('vip_fanlijilu')->where('Jtime','>',$time)->get();
+		$res1 = DB::table('vip_fanlijilu')->join('vip_huiyuan','vip_fanlijilu.yid','=','vip_huiyuan.id')->where('Jtime','>',$time)->orderBy('yfanmoney','desc')->paginate(30);
+		$res = DB::table('vip_fanlijilu')->join('vip_huiyuan','vip_fanlijilu.yid','=','vip_huiyuan.id')->where('Jtime','>',$time)->select('vip_huiyuan.name','vip_fanlijilu.yphone','vip_fanlijilu.total')->get();
 		//将所有的数据加载一起这是一个月的
 		$account = 0;
 		foreach($res as $v){
