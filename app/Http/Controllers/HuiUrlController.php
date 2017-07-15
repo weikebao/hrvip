@@ -8,6 +8,7 @@ use DB;
 use EasyWeChat\Foundation\Application;
 use ZPY;
 use Omnipay;
+use Log;
 class HuiUrlController extends Controller
 {
     public function postIndex(){	//这里是微信充值的回调路径信息
@@ -46,7 +47,7 @@ class HuiUrlController extends Controller
 			}
 		});
     }
-    //这个是支付宝的回调路径
+    //这个是支付宝同步通知的回调路径
     public  function getPay(Request $request)
     {
 		//获取订单的编号
@@ -74,6 +75,135 @@ class HuiUrlController extends Controller
 			
 	
     }
+	
+	//支付宝
+	/**
+	 * 异步通知
+	 */
+	public function webNotify()
+	{
+		// 验证请求。
+		if (! app('alipay.web')->verify()) {
+//			Log::notice('Alipay notify post data verification fail.', [
+//				'data' => Request::instance()->getContent()
+//			]);
+			return 'fail';
+		}
+
+		// 判断通知类型。
+		switch (Input::get('trade_status')) {
+			case 'TRADE_SUCCESS':
+			case 'TRADE_FINISHED':
+				// TODO: 支付成功，取得订单号进行其它相关操作。
+//				Log::debug('Alipay notify post data verification success.', [
+//					'out_trade_no' => Input::get('out_trade_no'),
+//					'trade_no' => Input::get('trade_no')
+//				]);
+				$out_trade_no = $request->input('out_trade_no');
+				//根据订单的编号来修改相应的状态
+				$true = DB::table('vip_zhifu')->where('out_trade_no',$out_trade_no)->where('status',1)->first();
+				if($true){
+					DB::table('vip_zhifu')->where('out_trade_no',$out_trade_no)->update(['status'=>2]);
+					//获取充值的手机号
+					$phone = $true['phone'];
+					//充值的金额
+					$money = $true['money'];//默认为元
+					$tyb = floor($money);
+					//根据手机号来修改用户的总的太阳币个数  一元=一个太阳币
+					DB::table('vip_huiyuan')->where('phone',$phone)->increment('taiyangbi',$tyb);
+					//return redirect('/members/dir');
+				}
+				break;
+		}
+	
+		return 'success';
+	}
+
+	/**
+	 * 同步通知
+	 */
+	public function webReturn()
+	{
+		// 验证请求。
+		if (! app('alipay.web')->verify()) {
+			Log::notice('Alipay return query data verification fail.', [
+				'data' => Request::getQueryString()
+			]);
+			return redirect('/members/chongzhitaiyangbi');
+		}
+
+		// 判断通知类型。
+		switch (Input::get('trade_status')) {
+			case 'TRADE_SUCCESS':
+			case 'TRADE_FINISHED':
+				// TODO: 支付成功，取得订单号进行其它相关操作。
+				Log::debug('Alipay notify get data verification success.', [
+					'out_trade_no' => Input::get('out_trade_no'),
+					'trade_no' => Input::get('trade_no')
+				]);
+				$out_trade_no = $request->input('out_trade_no');
+				//根据订单的编号来修改相应的状态
+				$true = DB::table('vip_zhifu')->where('out_trade_no',$out_trade_no)->where('status',1)->first();
+				if($true){
+					DB::table('vip_zhifu')->where('out_trade_no',$out_trade_no)->update(['status'=>2]);
+					//获取充值的手机号
+					$phone = $true['phone'];
+					//充值的金额
+					$money = $true['money'];//默认为元
+					$tyb = floor($money);
+					//根据手机号来修改用户的总的太阳币个数  一元=一个太阳币
+					DB::table('vip_huiyuan')->where('phone',$phone)->increment('taiyangbi',$tyb);
+					return redirect('/members/dir');
+				}				
+				break;
+		}
+
+		return view('alipay.success');
+	}	
+	
+	//手机端
+	 /**
+     * 支付宝异步通知
+     */
+    public function alipayNotify()
+    {
+        // 验证请求。
+        if (! app('alipay.mobile')->verify()) {
+            //Log::notice('Alipay notify post data verification fail.', [
+            //    'data' => Request::instance()->getContent()
+            //]);
+            return 'fail';
+        }
+
+        // 判断通知类型。
+        switch (Input::get('trade_status')) {
+            case 'TRADE_SUCCESS':
+            case 'TRADE_FINISHED':
+                // TODO: 支付成功，取得订单号进行其它相关操作。
+                //Log::debug('Alipay notify get data verification success.', [
+                //    'out_trade_no' => Input::get('out_trade_no'),
+                //    'trade_no' => Input::get('trade_no')
+                //]);
+				$out_trade_no = $request->input('out_trade_no');
+				//根据订单的编号来修改相应的状态
+				$true = DB::table('vip_zhifu')->where('out_trade_no',$out_trade_no)->where('status',1)->first();
+				if($true){
+					DB::table('vip_zhifu')->where('out_trade_no',$out_trade_no)->update(['status'=>2]);
+					//获取充值的手机号
+					$phone = $true['phone'];
+					//充值的金额
+					$money = $true['money'];//默认为元
+					$tyb = floor($money);
+					//根据手机号来修改用户的总的太阳币个数  一元=一个太阳币
+					DB::table('vip_huiyuan')->where('phone',$phone)->increment('taiyangbi',$tyb);
+				}
+                break;
+        }
+
+        return 'success';
+    }
+	//支付宝回调通知结束
+	
     public  function postPays()
     {
     }
